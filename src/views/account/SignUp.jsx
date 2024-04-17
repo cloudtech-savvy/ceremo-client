@@ -1,41 +1,43 @@
 import { lazy } from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 const SingUpForm = lazy(() => import("../../components/account/SignUpForm"));
 
 const SignUpView = () => {
   const [error, setError] = useState(null);
-
   const onSubmit = async (values) => {
-    // submitting form  logic here
+    // submitting form logic here
     const formData = {
       email: values.email,
       username: values.username,
       password: values.password,
-      confirmPassword: values.confirmPassword
+      confirmPassword: values.confirmPassword,
     };
+
     try {
-      const response = await axios({
-        method: 'POST', // Specify the method directly
-        url: 'http://127.0.0.1:8000/signup/',
-        data: formData,
+      const response = await fetch("http://127.0.0.1:8000", {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json',
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*", // This might not be necessary depending on your server setup
         },
-        withCredentials: true // Enable CORS handling
-    });
-    
-    
-    
-      console.log('Sign up successful:', response.data);
-      // Handle success
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Sign up request failed"); // Throw an error if the response status is not OK
+      }
+
+      const responseData = await response.json(); // Parse the response JSON
+      console.log("Sign up successful:", responseData);
     } catch (error) {
-      console.error('Sign up failed:', error);
-      setError('Sign up failed. Please try again.'); // Set error state
+      console.error("Sign up failed:", error);
+      setError("Sign up failed. Please try again."); // Set error state
       // Handle error
     }
   };
+
   //   alert(JSON.stringify(values));
   // };
   return (
@@ -60,7 +62,7 @@ const SignUpView = () => {
         <div className="col-md-6 p-3">
           <h4 className="text-center">Sign Up</h4>
           <SingUpForm onSubmit={onSubmit} />
-          {/* {error && <div className="alert alert-danger">{error}</div>} */}
+          {error && <div className="alert alert-danger">{error}</div>}
         </div>
       </div>
     </div>

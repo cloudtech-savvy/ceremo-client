@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkceremo_=self.webpackChunkceremo_||[]).push([[413],{413:function(e,a,r){r.r(a);r(2791);var c=r(184);a.default=function(e){return(0,c.jsx)("div",{className:"card mb-3",children:(0,c.jsx)("div",{className:"card-header fw-bold text-uppercase accordion-icon-button","data-bs-toggle":"collapse","data-bs-target":"#filterColor","aria-expanded":"true","aria-controls":"filterColor",children:"Color"})})}}}]);
+//# sourceMappingURL=413.5bc62c75.chunk.js.map

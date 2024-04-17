@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkceremo_=self.webpackChunkceremo_||[]).push([[1783],{1783:function(s,c,e){e.r(c);e(2791);var a=e(1087),r=e(184);c.default=function(s){return(0,r.jsx)(a.rU,{to:s.to,children:(0,r.jsx)("div",{className:"card shadow-sm ".concat(s.className),children:(0,r.jsx)("div",{className:"card-body p-0",children:(0,r.jsx)("img",{src:s.src,className:"img-fluid rounded",alt:"..."})})})})}}}]);
+//# sourceMappingURL=1783.70ae6d79.chunk.js.map
